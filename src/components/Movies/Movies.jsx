@@ -3,10 +3,10 @@ function ListOfMovies({ movies }) {
         <ul>
             {
                 movies.map(movies => (
-                    <li key={movies.imdbID}>
-                        <h3>{movies.Title}</h3>
-                        <p>{movies.Year}</p>
-                        <img src={movies.Poster} alt={movies.Title} />
+                    <li key={movies.id}>
+                        <h3>{movies.title}</h3>
+                        <p>{movies.year}</p>
+                        <img src={movies.poster} alt={movies.title} />
                     </li>
                 ))
             }
@@ -28,4 +28,4 @@ export default function Movies({ movies }) {
     return (
         hasMovies ? ListOfMovies({ movies }) : NoMoviesResults()
     )
-}
+}  

@@ -1,13 +1,13 @@
 import './App.css'
 import Movies from './components/Movies/Movies'
-import responseMovies from './mockData/mock.json'
+import { useMovies } from './hooks/useMovies'
 
 function App() {
   const handleSubmit = () => {
     e.preventDefault()
   }
 
-  const movies = responseMovies.Search
+  const { movies: mappedMovies } = useMovies()
 
   return (
     <>
@@ -20,7 +20,7 @@ function App() {
       </header>
 
       <main>
-        <Movies movies={movies} />
+        <Movies movies={mappedMovies} />
       </main>
     </>
   )
