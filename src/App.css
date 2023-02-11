@@ -8,11 +8,19 @@ header {
     justify-content: center;
     text-align: center;
     flex-direction: column;
+    margin-bottom: 50px;
 }
+
 
 main ul {
     display: grid;
+    list-style: none;
     gap: 30px;
     text-align: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+h3,
+p {
+    margin: 0 !important;
 }
