@@ -12,17 +12,17 @@ export default function useSearch() {
       }
 
       if (search === '') {
-        setError('No se puede buscar una película vacía')
+        setError('Cannot search an empty movie')
         return
       }
 
       if (search.match(/^\d+$/)) {
-        setError('No se puede buscar una película con un número')
+        setError('Cannot search a movie with a number')
         return
       }
 
       if (search.length < 3) {
-        setError('La búsqueda debe tener al menos 3 caracteres')
+        setError('The search must have at least 3 characters')
         return
       }
 
