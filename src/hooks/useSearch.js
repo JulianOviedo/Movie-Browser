@@ -8,6 +8,7 @@ export default function useSearch() {
     useEffect(() => {
       if (isFirstInput.current) {
         isFirstInput.current = search === ''
+        // its not going to set true anymore because the value of the useRef doesnt change across the re-renders.
         return
       }
 
