@@ -3,7 +3,7 @@ import Movies from './components/Movies/Movies'
 import { useMovies } from './hooks/useMovies'
 import useSearch from './hooks/useSearch'
 import Loader from './components/Loader/Loader.jsx'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import debounce from "just-debounce-it";
 
 function App() {
@@ -11,6 +11,8 @@ function App() {
   //hooks
   const { search, updateSearch, error } = useSearch()
   const { movies, getMovies, loading } = useMovies({ search, sort })
+
+  console.log(movies)
 
   const debouncedGetMovies = useCallback(
     debounce(search => {
@@ -30,7 +32,7 @@ function App() {
     const newSearch = e.target.value
     if (newSearch.startsWith(' ')) return
     updateSearch(newSearch)
-    debouncedGetMovies({ newSearch })
+    debouncedGetMovies(newSearch)
   }
 
   const handleSort = () => {
