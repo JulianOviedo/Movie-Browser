@@ -32,7 +32,7 @@ p {
     border-radius: 50%;
     border-left-color: #09f;
     position: absolute;
-    top: 30%;
+    top: 22%;
     right: 50%;
 
     animation: spin 1s ease infinite;
