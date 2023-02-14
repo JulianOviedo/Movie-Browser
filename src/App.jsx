@@ -30,6 +30,7 @@ function App() {
 
   const handleChange = (e) => {
     const newSearch = e.target.value
+    setSort(false)
     if (newSearch.startsWith(' ')) return
     updateSearch(newSearch)
     debouncedGetMovies(newSearch)
@@ -47,17 +48,20 @@ function App() {
           <input onChange={handleChange}
             style={{
               border: '1px solid transparent',
-              borderColor: error ? 'red' : 'transparent'
+              borderColor: error ? 'red' : 'transparent',
+              minWidth: '350px',
+              maxWidth: '450px',
+              alignSelf: 'center'
             }}
             value={search}
             type='text'
             placeholder="Avengers, The Matrix, Lord of the Rings .....">
           </input>
-          <button onClick={handleSubmit} type="submit">Search</button>
-          <label>
+          <button style={{ width: '200px', alignSelf: 'center' }} onClick={handleSubmit} type="submit">Search</button>
+          <p>
             {'Sort by title'}
             <input type='checkbox' onChange={handleSort} checked={sort} />
-          </label>
+          </p>
         </form>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
