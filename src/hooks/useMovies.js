@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import searchMovies from '../services/searchMovies'
 
-export function useMovies ({search}) {
+export function useMovies ({search, sort}) {
     const [movies, setMovies] = useState([])
     const [loading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
@@ -20,6 +20,12 @@ export function useMovies ({search}) {
 
     }
 
-
-    return {movies, getMovies, loading}
-}
+    // with useMemo... the code avoid to re-calculate the sort when the search changed.. only when the dependencies change
+    const sortedMovies = useMemo(() => {
+        return sort
+          ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
+          : movies
+      }, [sort, movies])
+    
+      return { movies: sortedMovies, getMovies, loading }
+    }
