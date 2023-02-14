@@ -21,6 +21,7 @@ function App() {
     const newSearch = e.target.value
     if (newSearch.startsWith(' ')) return
     updateSearch(newSearch)
+    getMovies({ search: newSearch })
   }
 
   const handleSort = () => {
