@@ -28,7 +28,7 @@ export function useMovies({ search, sort }) {
     const sortedMovies = useMemo(() => {
         const hasMovies = movies?.length > 0
         return sort
-            ? hasMovies?[...movies].sort((a, b) => a.title.localeCompare(b.title)) : null
+            ? hasMovies ? [...movies].sort((a, b) => a.title.localeCompare(b.title)) : null
             : movies
     }, [sort, movies])
 
