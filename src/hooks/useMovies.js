@@ -26,8 +26,9 @@ export function useMovies({ search, sort }) {
 
     // with useMemo... the code avoid to re-calculate the sort when the search changed.. only when the dependencies change
     const sortedMovies = useMemo(() => {
+        const hasMovies = movies?.length > 0
         return sort
-            ? [...movies].sort((a, b) => a.title.localeCompare(b.title))
+            ? hasMovies?[...movies].sort((a, b) => a.title.localeCompare(b.title)) : null
             : movies
     }, [sort, movies])
 
