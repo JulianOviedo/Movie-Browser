@@ -16,7 +16,7 @@ function ListOfMovies({ movies }) {
 
 function NoMoviesResults() {
     return (
-        <p>
+        <p style={{ textAlign: 'center' }}>
             There is no results for that search
         </p>
     )
