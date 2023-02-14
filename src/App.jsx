@@ -55,7 +55,7 @@ function App() {
             }}
             value={search}
             type='text'
-            placeholder="Avengers, The Matrix, Lord of the Rings .....">
+            placeholder="Avengers, The Matrix, Lord of the Rings ...">
           </input>
           <button style={{ width: '200px', alignSelf: 'center' }} onClick={handleSubmit} type="submit">Search</button>
           <p>
