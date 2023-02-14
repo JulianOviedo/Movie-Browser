@@ -2,14 +2,15 @@ import './App.css'
 import Movies from './components/Movies/Movies'
 import { useMovies } from './hooks/useMovies'
 import useSearch from './hooks/useSearch'
+import Loader from './components/Loader/Loader.jsx'
 
 function App() {
 
-  const { movies: mappedMovies } = useMovies()
   const { search, updateSearch, error } = useSearch()
-
+  const { movies, getMovies, loading } = useMovies({ search })
   const handleSubmit = (e) => {
     e.preventDefault()
+    getMovies()
   }
 
   const handleChange = (e) => {
@@ -38,7 +39,9 @@ function App() {
       </header>
 
       <main>
-        <Movies movies={mappedMovies} />
+        {
+          loading ? <Loader /> : <Movies movies={movies} search={search} />
+        }
       </main>
     </>
   )
